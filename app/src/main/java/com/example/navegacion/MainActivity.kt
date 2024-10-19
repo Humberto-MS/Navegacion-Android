@@ -16,8 +16,8 @@ import com.example.navegacion.views.DetailView
 import com.example.navegacion.views.HomeView
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate ( savedInstanceState: Bundle? ) {
+        super.onCreate ( savedInstanceState )
         setContent {
             NavManager()
         }

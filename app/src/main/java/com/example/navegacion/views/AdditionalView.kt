@@ -10,7 +10,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -28,13 +27,13 @@ import com.example.navegacion.components.TitleView
 @OptIn ( ExperimentalMaterial3Api::class )
 @SuppressLint ( "UnusedMaterial3ScaffoldPaddingParameter" )
 @Composable
-fun DetailView ( navController: NavController, id: Int, opcional: String? ) {
+fun AdditionalView ( navController: NavController, id: Int, opcional: String? ) {
     Scaffold (
         topBar = {
             TopAppBar (
-                title = { TitleBar ( name = "Detail View" ) },
+                title = { TitleBar ( name = "Additional View") },
                 colors = TopAppBarDefaults.mediumTopAppBarColors (
-                    containerColor = Color.Blue
+                    containerColor = Color.Green
                 ),
                 navigationIcon = {
                     MainIconButton ( icon = Icons.Default.ArrowBack ) {
@@ -44,18 +43,18 @@ fun DetailView ( navController: NavController, id: Int, opcional: String? ) {
             )
         }
     ) {
-        ContentDetailView ( navController, id, opcional )
+        ContentAdditionalView ( navController, id, opcional )
     }
 }
 
 @Composable
-fun ContentDetailView ( navController: NavController, id: Int, opcional: String? ) {
+fun ContentAdditionalView ( navController: NavController, id: Int, opcional: String? ) {
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TitleView ( name = "Detail View" )
+        TitleView ( name = "Additional View" )
         Space()
         TitleView ( name = id.toString() )
         Space()
@@ -68,11 +67,11 @@ fun ContentDetailView ( navController: NavController, id: Int, opcional: String?
 
         Space()
         MainButton (
-            name = "Additional View",
-            backColor = Color.Blue,
+            name = "Return To Home View",
+            backColor = Color.Green,
             color = Color.White
         ) {
-            navController.navigate ( "Additional/${id}/?${opcional}" )
+            navController.navigate ( "Home" )
         }
     }
 }

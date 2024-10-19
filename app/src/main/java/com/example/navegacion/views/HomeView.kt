@@ -25,15 +25,15 @@ import com.example.navegacion.components.Space
 import com.example.navegacion.components.TitleBar
 import com.example.navegacion.components.TitleView
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint ( "UnusedMaterial3ScaffoldPaddingParameter" )
+@OptIn ( ExperimentalMaterial3Api::class )
 @Composable
-fun HomeView(navController: NavController) {
-    Scaffold(
+fun HomeView ( navController: NavController ) {
+    Scaffold (
         topBar = {
-            CenterAlignedTopAppBar(
-                title = { TitleBar(name = "Home View") },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+            CenterAlignedTopAppBar (
+                title = { TitleBar ( name = "Home View" ) },
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors (
                     containerColor = Color.Red
                 )
             )
@@ -42,29 +42,35 @@ fun HomeView(navController: NavController) {
             ActionButton()
         }
     ) {
-        ContentHomeView(navController)
+        ContentHomeView ( navController )
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ContentHomeView(navController: NavController) {
-    val id = 123
-    var opcional by remember { mutableStateOf("") }
-    Column(
+fun ContentHomeView ( navController: NavController ) {
+    val id = 25
+    var opcional by remember { mutableStateOf ( "" ) }
+
+    Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TitleView(name = "Home View")
+        TitleView ( name = "Home View" )
         Space()
-        TextField(
+        TextField (
             value = opcional,
             onValueChange = { opcional = it },
-            label = { Text(text = "Opcional") }
+            label = { Text ( text = "Opcional" ) }
         )
-        MainButton(name = "Detail view", backColor = Color.Red, color = Color.White) {
-            navController.navigate("Detail/${id}/?${opcional}")
+        Space()
+        MainButton (
+            name = "Detail view",
+            backColor = Color.Red,
+            color = Color.White
+        ) {
+            navController.navigate ( "Detail/${id}/?${opcional}" )
         }
     }
 }
